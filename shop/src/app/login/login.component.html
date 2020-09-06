@@ -1,0 +1,20 @@
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="form-signin">
+    <div class="text-center mb-4">
+      <h1 class="h3 mb-3 font-weight-normal">Admin Paneline Giriş</h1>
+    </div>
+  
+    <div class="form-label-group">
+      <input type="text" #userName="ngModel" [(ngModel)]="model.userName" id="userName" name="userName" class="form-control" placeholder="Kullanıcı adı" required autofocus>
+      <div *ngIf="userName.invalid&&userName.dirty" class="alert alert-danger">Kullanıcı adı gerekldir</div>
+      <label for="inputEmail">Kullanıcı adı</label>
+    </div>
+  
+    <div class="form-label-group">
+      <input type="password" #password="ngModel" [(ngModel)]="model.password" id="password" name="password" class="form-control" placeholder="Şifre" required>
+      <div *ngIf="password.invalid&&password.dirty" class="alert alert-danger">Şifre gerekldir</div>
+      <label for="inputPassword">Şifre</label>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sisteme Giriş Yap</button>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2020</p>
+  </form>
