@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" routerLink="city">Şehir Rehberim</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="city" routerLinkActive="active">Şehirler <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="value" routerLinkActive="active">Boş Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="cityadd" routerLinkActive="active">Şehir Ekle</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="register" routerLinkActive="active">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </li>
+      </ul>
+      
+      <span *ngIf="currentUser">Hoş geldiniz sayın @{{currentUser}}&nbsp;</span>
+      <form [formGroup]="loginForm" *ngIf="!isAuthenticated" (ngSubmit)="login()" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" [(ngModel)]="loginUser.userName" formControlName="userName" type="text" name="userName" placeholder="Kullanıcı adı" required>
+        <input class="form-control mr-sm-2" [(ngModel)]="loginUser.password" formControlName="password" type="password" name="password" placeholder="Şifre" required>
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Giriş Yap</button>
+      </form>
+      <button type="submit" class="btn btn-secondary my-2 my-sm-0" *ngIf="isAuthenticated" (click)="logOut()">Güvenli Çıkış</button>
+    </div>
+  </nav>

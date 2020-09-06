@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let city of cities" class="col-md-6" style="max-width: 150rem;">
+      <div class="card-header">{{city.name}}</div>
+      <div class="card-body">
+        <p [innerHtml]="city.description"></p>
+        <img style="height: 200px; width: 100%; display: block;" src="{{city.photos[0].url}}" alt="Card image">
+        <div class="btn-group mt-1 pt-1" role="group" aria-label="Basic example">
+          <button type="button" routerLink="/cityDetail/{{city.id}}" class="btn btn-secondary">Şehir Detayı</button>
+          <button type="button" class="btn btn-secondary">{{city.id}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
